@@ -1,10 +1,9 @@
 package com.bootcamp.Shop;
 
-import com.bootcamp.Shop.Commands.BuyCoommand;
-import com.bootcamp.Shop.Commands.Command;
+import com.bootcamp.Shop.Commands.BuyCommand;
 import com.bootcamp.Shop.Commands.CommandManager;
 import com.bootcamp.Shop.Commands.ReturnCommand;
-import com.bootcamp.Shop.Pool.Pool;
+
 
 public class Main {
 
@@ -40,32 +39,25 @@ public class Main {
 		User user = new User("FisrtPlaye");
 		user.addItem(chocolate, 20);
 
-		Pool<BuyCoommand> buyCoommandPool = new Pool<BuyCoommand> () {
-			@Override
-			protected BuyCoommand newObject() {
-				return new BuyCoommand();
-			}
-    	};
-		Pool<ReturnCommand> returnCommandPool = new Pool<ReturnCommand> () {
-			@Override
-			protected ReturnCommand newObject() {
-				return new ReturnCommand();
-			}
-		};
-
 		/**
-		 * Execute BuyCommand
+		 * Execute Buy command
 		 */
-		CommandManager.getInstance().executeCommand(buyCoommandPool.obtain(), shop, user, 1);
-
+		BuyCommand buyCommand = (BuyCommand) CommandManager.getInstance().createPoolComands().get(BuyCommand.class).obtain();
+		CommandManager.getInstance().executeCommand(buyCommand, shop, user, 1);
 
 		/**
-		 * Undo buy command
+		 * Execute Return command
 		 */
-		CommandManager.getInstance().undo(shop, user, 1);
+		ReturnCommand returnCommand = (ReturnCommand) CommandManager.getInstance().createPoolComands().get(ReturnCommand.class).obtain();
+		CommandManager.getInstance().executeCommand(returnCommand, shop, user, 1);
 
 		/**
-		 * Redo buy command
+		 * Undo Return command
+		 */
+		CommandManager.getInstance().undo( shop, user, 1);
+
+		/**
+		 * Redo Return command
 		 */
 		CommandManager.getInstance().redo(shop, user, 1);
 

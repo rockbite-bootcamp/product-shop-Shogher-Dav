@@ -57,7 +57,6 @@ public class ShopIml implements IShop {
 				return false;
 			}
 		}
-
 		return true;
 	}
 
@@ -103,14 +102,10 @@ public class ShopIml implements IShop {
 		Product product = productMap.get(id);
 		if(product != null) {
 			if(canAfford(user, id)) {
-
-
 				for (Thing thing : product.getCost().keySet()) {
 					int count = product.getCost().get(thing);
 					user.addItem(thing, count);
 				}
-
-
 				for (Thing thing : product.getPayload().keySet()) {
 					int count = product.getPayload().get(thing);
 					user.spendItem(thing, count);

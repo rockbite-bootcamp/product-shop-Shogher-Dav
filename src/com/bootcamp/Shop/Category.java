@@ -3,6 +3,9 @@ package com.bootcamp.Shop;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Category class for Products
+ */
 public class Category {
 
     /**
@@ -54,13 +57,6 @@ public class Category {
     public void addProduct(Product product) {
         this.products.add(product);
     }
-
-
-    @Override
-    public String toString() {
-        return "Category [name=" + name + ", products=" + products + "]";
-    }
-
 
 
 }

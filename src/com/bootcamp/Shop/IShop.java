@@ -16,16 +16,16 @@ public interface IShop {
 	 * @param id
 	 * @param user
 	 */
-	public boolean purchaseProduct (User user, int id);
+	boolean purchaseProduct (User user, int id);
 
 
 	/**
-	 * If user doen't want a product  he or she can return it to shop
+	 * If user doesn't want a product  he or she can return it to shop
 	 * @param user
 	 * @param id
 	 * @return
 	 */
-	public boolean returnProduct(User user, int id);
+	boolean returnProduct(User user, int id);
 
 	/**
 	 * Check if  user can afford buying some items
@@ -34,14 +34,5 @@ public interface IShop {
 	 * @return
 	 */
 	boolean canAfford (User user, int id);
-
-
-
-
-
-	
-	
-	
-	
 
 }

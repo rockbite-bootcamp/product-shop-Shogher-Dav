@@ -3,8 +3,7 @@ package com.bootcamp.Shop.Commands;
 import com.bootcamp.Shop.ShopIml;
 import com.bootcamp.Shop.User;
 
-public class BuyCoommand implements Command {
-
+public class BuyCommand implements Command {
 
 
     @Override
@@ -23,6 +22,7 @@ public class BuyCoommand implements Command {
     public void reset() {
 
     }
+
 }
 
 

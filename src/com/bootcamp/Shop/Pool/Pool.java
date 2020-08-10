@@ -13,13 +13,12 @@ public abstract class Pool<T extends Poolable> {
     }
     protected abstract T newObject();
 
+
     public T obtain() {
 
         if (freeObjects.isEmpty()) {
             T object = newObject();
-
             freeObjects.add(object);
-
         }
         T object = freeObjects.remove(0);
         usedObjects.add(object);

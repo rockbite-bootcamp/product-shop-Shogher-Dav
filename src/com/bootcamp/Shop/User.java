@@ -1,7 +1,5 @@
 package com.bootcamp.Shop;
 
-import com.bootcamp.Shop.Thing;
-
 import java.util.HashMap;
 
 public class User {
